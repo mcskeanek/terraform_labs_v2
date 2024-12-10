@@ -7,8 +7,8 @@ resource "random_password" "password" {
 }
 
 resource "azurerm_windows_virtual_machine" "VM" {
-  for_each = toset(["VM1", "VM2"])
-  name                = each.value 
+  for_each            = toset(["VM1", "VM2"])
+  name                = each.value
   resource_group_name = module.networking.rg_name
   location            = module.networking.rg_location
   size                = "Standard_DS2_v2"
@@ -34,7 +34,7 @@ resource "azurerm_windows_virtual_machine" "VM" {
 }
 
 resource "azurerm_virtual_machine_extension" "vm-extensions" {
-  for_each = toset(["VM1", "VM2"])
+  for_each             = toset(["VM1", "VM2"])
   name                 = "${each.value}-ext"
   virtual_machine_id   = azurerm_windows_virtual_machine.VM[each.key].id
   publisher            = "Microsoft.Compute"
@@ -51,8 +51,8 @@ SETTINGS
 
 resource "azurerm_network_interface" "example" {
   for_each = tomap({
-    "VM1" ="nic-vm1"
-    "VM2" ="nic-vm2"
+    "VM1" = "nic-vm1"
+    "VM2" = "nic-vm2"
   })
   name                = each.value
   location            = module.networking.rg_location
