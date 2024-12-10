@@ -1,4 +1,14 @@
 terraform {
+  cloud { 
+        
+          organization = "KMTemper" 
+
+                workspaces { 
+                        name = "tmpworkspace" 
+                } 
+  } 
+                }
+  }
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"

@@ -3,26 +3,26 @@ variable "backend_address_pool_name" {
 }
 
 variable "frontend_port_name" {
-    default = "myFrontendPort"
+  default = "myFrontendPort"
 }
 
 variable "frontend_port" {
-    default = 80
+  default = 80
 }
 
 variable "frontend_ip_configuration_name" {
-    default = "myAGIPConfig"
+  default = "myAGIPConfig"
 }
 
 variable "http_setting_name" {
-    default = "myHTTPsetting"
+  default = "myHTTPsetting"
 }
 
 variable "listener_name" {
-    default = "myListener"
+  default = "myListener"
 }
 
 variable "request_routing_rule_name" {
-    default = "myRoutingRule"
+  default = "myRoutingRule"
 }
 
